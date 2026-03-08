@@ -1,12 +1,12 @@
 [phases.setup]
-nixPkgs = ["python311", "nodejs_20", "gcc-unwrapped"]
+nixPkgs = ["python311", "python311Packages.pip", "nodejs_20"]
 
 [phases.install]
 cmds = [
   "npm run install:all",
-  "pip3 install playwright==1.44.0 pillow requests beautifulsoup4",
-  "playwright install chromium",
-  "playwright install-deps chromium"
+  "python3.11 -m pip install playwright==1.44.0 pillow requests beautifulsoup4",
+  "python3.11 -m playwright install chromium",
+  "python3.11 -m playwright install-deps chromium"
 ]
 
 [phases.build]
