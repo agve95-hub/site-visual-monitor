@@ -1,0 +1,16 @@
+[phases.setup]
+nixPkgs = ["python311", "nodejs_20", "gcc", "libstdcxx5"]
+
+[phases.install]
+cmds = [
+  "npm run install:all",
+  "pip3 install playwright==1.44.0 pillow requests beautifulsoup4",
+  "playwright install chromium",
+  "playwright install-deps chromium"
+]
+
+[phases.build]
+cmds = ["npm run build"]
+
+[start]
+cmd = "node backend/server.js"
