@@ -112,7 +112,7 @@ function triggerRun() {
     API_URL:                `http://localhost:${PORT}`,
   };
 
-  execFile("python3", [path.join(__dirname, "monitor.py")], {
+  execFile("python3.11", [path.join(__dirname, "monitor.py")], {
     timeout: 300_000,
     env,
   }, (err, stdout, stderr) => {
