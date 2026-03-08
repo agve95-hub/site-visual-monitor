@@ -1,11 +1,12 @@
 {
-  "name": "sitewatcher",
-  "version": "2.0.0",
-  "private": true,
-  "scripts": {
-    "install:all": "npm install --prefix backend && npm install --prefix frontend",
-    "build": "npm run build --prefix frontend",
-    "start": "node backend/server.js",
-    "setup": "npm run install:all && npm run build"
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "DOCKERFILE",
+    "dockerfilePath": "Dockerfile"
+  },
+  "deploy": {
+    "startCommand": "node backend/server.js",
+    "restartPolicyType": "ON_FAILURE",
+    "restartPolicyMaxRetries": 3
   }
 }
